@@ -29,12 +29,13 @@ module "create_app" {
   ]
 
   # Input variables
-  app_name     = "bluehydrogenabacus"
+  app_name     = var.app_name
   app_rg_name  = "RG-${upper(var.environment)}-${upper(var.project)}-${upper(var.region_short)}-${upper(var.app_name)}-${var.app_suffix}"
   asp_name     = "app-svcplan-${lower(var.project)}-${lower(var.region_short)}-${lower(var.app_name)}"
   app_settings = {
     "SCM_DO_BUILD_DURING_DEPLOYMENT" = "1"
     "WEBSITES_CONTAINER_START_TIME_LIMIT" = "1800"
+    "HELLO" = "venkat"
   }
 }
 
