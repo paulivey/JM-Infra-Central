@@ -30,5 +30,6 @@ resource "azurerm_app_service" "web_app" {
       remote_debugging_version = var.app_rmt_debug_version
       app_command_line         = var.app_cmd_line
       ftps_state               = var.app_ftps_state
+      vnet_route_all_enabled   = var.route_all_enabled
     }
 }

@@ -86,3 +86,8 @@ variable "app_ftps_state" {
 variable "app_settings" {
     type    = map(string)
 }
+
+variable "route_all_enabled" {
+    type    = bool
+    default = true
+}
