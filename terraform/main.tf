@@ -67,3 +67,45 @@ module "enable_vnet_integration" {
   web_app_rg_name         = azurerm_resource_group.rg.name
   web_app_name            = var.app_name
 }
+
+# Create storage account
+module "create_storage_account" {
+  # TODO: Set to GH repo, using tags/releases for versioning
+  source = "../modules/storage_account"
+
+  depends_on = [
+    azurerm_resource_group.rg
+  ]
+
+  # Input variables
+  sta_rg_name = azurerm_resource_group.rg.name
+  sta_name    = "${lower(var.app_name)}"
+}
+
+# Create storage container
+module "create_storage_container" {
+  # TODO: Set to GH repo, using tags/releases for versioning
+  source = "../modules/storage_container"
+
+  depends_on = [
+    module.create_storage_account
+  ]
+
+  # Input variables
+  sta_name       = "${lower(var.app_name)}"
+  container_name = "mycontainer"
+}
+
+# Create storage share
+module "create_storage_share" {
+  # TODO: Set to GH repo, using tags/releases for versioning
+  source = "../modules/storage_share"
+
+  depends_on = [
+    module.create_storage_account
+  ]
+
+  # Input variables
+  sta_name   = "${lower(var.app_name)}"
+  share_name = "myshare"
+}
