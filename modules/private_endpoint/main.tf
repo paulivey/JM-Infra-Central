@@ -1,3 +1,10 @@
+# Provider for the root subscription
+provider "azurerm" {
+    alias = "root"
+    # subscription_id = "219f3968-bba7-4c82-8e7f-4a4defa5d40b"
+    features {}
+}
+
 # Create private endpoint
 resource "azurerm_private_endpoint" "pvt_endpoint" {
     name                = var.pvt_endpoint_name
