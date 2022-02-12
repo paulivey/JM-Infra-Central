@@ -1,15 +1,16 @@
 # Provider for the root subscription
-provider "azurerm.root" {
-    alias = "root"
-    subscription_id = "219f3968-bba7-4c82-8e7f-4a4defa5d40b"
-    features {}
-}
+# provider "azurerm" {
+#     alias = "root"
+#     subscription_id = "219f3968-bba7-4c82-8e7f-4a4defa5d40b"
+#     features {}
+# }
 
 terraform {
   required_providers {
     azurerm = {
-      configuration_aliases = [ root ]
-     }
+        source = "hashicorp/azurerm"
+        configuration_aliases = [ azurerm.root ]
+    }
   }
 }
 
