@@ -13,7 +13,8 @@ resource "azurerm_private_endpoint" "pvt_endpoint" {
     subnet_id           = data.azurerm_subnet.pesubnet.id
 
     private_dns_zone_group {
-        name                 = data.azurerm_private_dns_zone.pvt_dns_zone.name
+        name = azurerm.rootmgmt.data.azurerm_private_dns_zone.pvt_dns_zone.name
+        # name                 = data.azurerm_private_dns_zone.pvt_dns_zone.name
         private_dns_zone_ids = [data.azurerm_private_dns_zone.pvt_dns_zone.id]
     }
 
