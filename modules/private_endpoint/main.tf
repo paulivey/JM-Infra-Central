@@ -1,8 +1,10 @@
 # Provider for the root subscription
-provider "azurerm" {
-    alias = "root"
-    # subscription_id = "219f3968-bba7-4c82-8e7f-4a4defa5d40b"
-    features {}
+terraform {
+  required_providers {
+    azurerm = {
+      configuration_aliases = [ root ]
+     }
+  }
 }
 
 # Create private endpoint
