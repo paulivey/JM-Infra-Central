@@ -8,7 +8,7 @@ provider "azurerm" {
 terraform {
   required_providers {
     azurerm = {
-      cconfiguration_aliases = [ azurerm.rootmgmt ]
+        configuration_aliases = [ azurerm.rootmgmt ]
      }
   }
 }
