@@ -1,18 +1,3 @@
-# Provider for the root subscription
-provider "azurerm" {
-    alias = "rootmgmt"
-    subscription_id = "219f3968-bba7-4c82-8e7f-4a4defa5d40b"
-    features {}
-}
-
-terraform {
-  required_providers {
-    azurerm = {
-        configuration_aliases = [ azurerm.rootmgmt ]
-     }
-  }
-}
-
 # Create private endpoint
 resource "azurerm_private_endpoint" "pvt_endpoint" {
     name                = var.pvt_endpoint_name
