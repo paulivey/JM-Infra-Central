@@ -1,15 +1,8 @@
-provider "azurermroot" {
-    subscription_id = "219f3968-bba7-4c82-8e7f-4a4defa5d40b"
-    features {}
-}
-
 terraform {
   required_providers {
     azurerm = {
         source = "hashicorp/azurerm"
-    }
-    azurermroot = {
-        source = "hashicorp/azurerm"
+        configuration_aliases = [ azurerm.root ]
     }
   }
 }
