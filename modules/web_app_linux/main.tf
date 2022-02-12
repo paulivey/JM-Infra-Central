@@ -6,7 +6,6 @@ resource "azurerm_app_service_plan" "asp" {
     kind                         = var.asp_kind
     reserved                     = var.asp_reserved
     maximum_elastic_worker_count = var.asp_max_ew_count
-    tags = var.tags
 
     sku {
       capacity = var.asp_capacity

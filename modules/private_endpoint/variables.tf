@@ -48,7 +48,3 @@ variable "is_manual_connection" {
 variable "subresource_names" {
     type    = list(string)
 }
-
-variable "tags" {
-    type    = map(string)
-}
