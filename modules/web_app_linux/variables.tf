@@ -1,6 +1,5 @@
 variable "app_name" {
     type    = string
-    #default = "bluehydrogenabacus"
 }
 
 variable "location" {
@@ -10,12 +9,10 @@ variable "location" {
 
 variable "app_rg_name" {
     type    = string
-    #default = "RG-SBX-DSOPS-EU-${upper(var.app_name)}-001"
 }
 
 variable "asp_name" {
     type    = string
-    #default = "app-svcplan-dsops-eu-${upper(var.app_name)}"
 }
 
 variable "asp_kind" {
