@@ -66,4 +66,5 @@ PARAMS
   identity {
     type = "SystemAssigned"
   }
+  location = data.azurerm_resource_group.rg.location
 }
