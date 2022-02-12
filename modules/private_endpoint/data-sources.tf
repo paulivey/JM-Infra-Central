@@ -18,7 +18,7 @@ data "azurerm_subnet" "pesubnet" {
 
 # Private DNS zone
 data "azurerm_private_dns_zone" "pvt_dns_zone" {
-    provider            = azurermroot
+    provider            = azurerm.root
     name                = var.pvt_dns_zone_name
     resource_group_name = var.pvt_dns_zone_rg_name
 }
