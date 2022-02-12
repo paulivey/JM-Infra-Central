@@ -9,6 +9,15 @@ provider "azurerm" {
     features {}
 }
 
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      configuration_aliases = [ azurerm.root ]
+     }
+  }
+}
+
 # Create private endpoint
 resource "azurerm_private_endpoint" "pvt_endpoint" {
     name                = var.pvt_endpoint_name
