@@ -1,7 +1,7 @@
 # Provider for the root subscription
 provider "azurerm" {
     alias = "rootmgmt"
-    subscription_id = var.root_sub_id
+    subscription_id = "219f3968-bba7-4c82-8e7f-4a4defa5d40b"
     features {}
 }
 
