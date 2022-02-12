@@ -3,6 +3,7 @@ resource "azurerm_network_security_group" "nsg" {
   name                = var.nsg_name
   location            = data.azurerm_resource_group.netrg.location
   resource_group_name = data.azurerm_resource_group.netrg.name
+  tags = var.tags
 }
 
 # Create subnet

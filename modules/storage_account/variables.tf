@@ -35,3 +35,7 @@ variable "sta_share_retention_period" {
     type    = number
     default = 7
 }
+
+variable "tags" {
+    type    = map(string)
+}

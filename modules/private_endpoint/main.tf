@@ -15,6 +15,7 @@ resource "azurerm_private_endpoint" "pvt_endpoint" {
     location            = data.azurerm_resource_group.netrg.location
     resource_group_name = data.azurerm_resource_group.netrg.name
     subnet_id           = data.azurerm_subnet.pesubnet.id
+    tags = var.tags
 
     private_dns_zone_group {
         name                 = data.azurerm_private_dns_zone.pvt_dns_zone.name

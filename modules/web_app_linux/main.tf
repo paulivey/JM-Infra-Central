@@ -6,6 +6,7 @@ resource "azurerm_app_service_plan" "asp" {
     kind                         = var.asp_kind
     reserved                     = var.asp_reserved
     maximum_elastic_worker_count = var.asp_max_ew_count
+    tags = var.tags
 
     sku {
       capacity = var.asp_capacity
@@ -22,6 +23,7 @@ resource "azurerm_app_service" "web_app" {
     app_service_plan_id = azurerm_app_service_plan.asp.id
     client_cert_mode    = var.app_cert_mode
     app_settings        = var.app_settings
+    tags = var.tags
     
     site_config {
       number_of_workers        = var.app_site_cfg_num_workers

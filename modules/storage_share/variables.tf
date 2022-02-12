@@ -10,3 +10,7 @@ variable "share_quota" {
     type    = number
     default = 6
 }
+
+variable "tags" {
+    type    = map(string)
+}
