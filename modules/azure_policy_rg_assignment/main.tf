@@ -1,6 +1,6 @@
 # Create Azure Policy assignment to resource group
 resource "azurerm_resource_group_policy_assignment" "policy_assignment" {
-  name = "${var.tag_app_name} assigned to ${data.azurerm_resource_group.rg.name}"
+  name = "${var.tag_app_name} policy assignment"
   policy_definition_id = var.policy_definition_id
   resource_group_id = data.azurerm_resource_group.rg.id
   description = "Automatically created via Terraform :)"
