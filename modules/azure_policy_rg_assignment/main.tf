@@ -63,8 +63,8 @@ resource "azurerm_resource_group_policy_assignment" "policy_assignment" {
       }
     }
 PARAMS
-  # identity {
-  #   type = "SystemAssigned"
-  # }
-  # location = data.azurerm_resource_group.rg.location
+  identity {
+    type = "SystemAssigned"
+  }
+  location = data.azurerm_resource_group.rg.location
 }
