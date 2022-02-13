@@ -22,6 +22,7 @@ resource "azurerm_app_service" "web_app" {
     app_service_plan_id = azurerm_app_service_plan.asp.id
     client_cert_mode    = var.app_cert_mode
     app_settings        = var.app_settings
+    tags = var.tags
     
     site_config {
       number_of_workers        = var.app_site_cfg_num_workers
