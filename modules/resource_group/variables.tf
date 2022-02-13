@@ -10,3 +10,7 @@ variable "location" {
 variable "tags" {
     type    = map(string)
 }
+
+variable "owner_object_id" {
+    type    = string
+}
