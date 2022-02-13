@@ -7,7 +7,3 @@ Examples:
 - Create tag: `git tag -a v1.4 -m "my version 1.4"`
 - Create tag after commit: `git tag -a v1.2 9fceb02`
 - Push tag: `git push origin v1.1`
-
-## To-do
-- Tags/Azure Policy for tagging
-- IAM
