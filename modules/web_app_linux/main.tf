@@ -1,8 +1,8 @@
 # Create app service plan
 resource "azurerm_app_service_plan" "asp" {
-    name                         = "${lower(var.asp_name)}"
+    name                         = lower(var.asp_name)
     location                     = var.location
-    resource_group_name          = "${upper(var.app_rg_name)}"
+    resource_group_name          = upper(var.app_rg_name)
     kind                         = var.asp_kind
     reserved                     = var.asp_reserved
     maximum_elastic_worker_count = var.asp_max_ew_count
@@ -17,8 +17,8 @@ resource "azurerm_app_service_plan" "asp" {
 
 # Create app service web app
 resource "azurerm_app_service" "web_app" {
-    name                = "${lower(var.app_name)}"
-    resource_group_name = "${upper(var.app_rg_name)}"
+    name                = lower(var.app_name)
+    resource_group_name = upper(var.app_rg_name)
     location            = var.location
     app_service_plan_id = azurerm_app_service_plan.asp.id
     client_cert_mode    = var.app_cert_mode
