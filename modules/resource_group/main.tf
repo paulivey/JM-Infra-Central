@@ -1,6 +1,6 @@
 # Create resource group
 resource "azurerm_resource_group" "rg" {
-  name     = "${upper(var.rg_name)}"
+  name     = upper(var.rg_name)
   location = var.location
   tags     = var.tags
 }
