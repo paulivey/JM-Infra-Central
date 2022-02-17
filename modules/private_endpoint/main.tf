@@ -4,6 +4,7 @@ provider "azurerm" {
 
 # Provider for rootmgmt subscription
 provider "azurerm" {
+    skip_provider_registration = true
     alias = "root"
     subscription_id = var.root_sub_id
     features {}
