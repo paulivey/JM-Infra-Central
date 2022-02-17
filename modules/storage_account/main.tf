@@ -1,6 +1,6 @@
 # Create storage account
 resource "azurerm_storage_account" "sta" {
-    name                     = lower(var.sta_name)
+    name                     = var.sta_name
     resource_group_name      = data.azurerm_resource_group.rg.name
     location                 = data.azurerm_resource_group.rg.location
     account_tier             = var.sta_tier
