@@ -1,6 +1,6 @@
 # Create NSG
 resource "azurerm_network_security_group" "nsg" {
-  name                = lower(var.nsg_name)
+  name                = var.nsg_name
   location            = data.azurerm_resource_group.netrg.location
   resource_group_name = data.azurerm_resource_group.netrg.name
   tags                = var.tags
@@ -8,7 +8,7 @@ resource "azurerm_network_security_group" "nsg" {
 
 # Create subnet
 resource "azurerm_subnet" "subnet" {
-  name                 = lower(var.subnet_name)
+  name                 = var.subnet_name
   resource_group_name  = data.azurerm_resource_group.netrg.name
   virtual_network_name = data.azurerm_virtual_network.vnet.name
   address_prefixes     = var.address_prefixes
