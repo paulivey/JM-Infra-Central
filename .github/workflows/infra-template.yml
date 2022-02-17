@@ -149,7 +149,7 @@ jobs:
 
   # Exclude from subscription/management group tagging policy
   policy-exclude:
-    name: Azure policy exclusion
+    name: Policy exclusion
     needs: base-infra
     environment: ${{ inputs.GH_ENVIRONMENT }}
     runs-on: ubuntu-latest
@@ -183,7 +183,7 @@ jobs:
 
   # Create resource group level tagging policy
   rg-policy:
-   name: Create RG policy assignment
+   name: Policy assignment
    runs-on: ubuntu-latest
    needs: policy-exclude
    environment: ${{ inputs.GH_ENVIRONMENT }}
