@@ -4,7 +4,7 @@ variable "resource_group_name" {
 
 variable "policy_definition_id" {
     type    = string
-    default = "/subscriptions/51b103e0-dc65-494c-8317-bd312197bbb2/providers/Microsoft.Authorization/policyDefinitions/315d6a61-405d-4e6f-92c6-c28434344123"
+    default = "/subscriptions/8d49d625-7846-4382-a9ba-7470576eb940/providers/Microsoft.Authorization/policyDefinitions/81be1eda-581f-481f-afda-4237b6dcb0a0"
 }
 
 variable "tag_country" {
