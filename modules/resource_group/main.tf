@@ -8,6 +8,6 @@ resource "azurerm_resource_group" "rg" {
 # Make the developer an owner of the resource group
 resource "azurerm_role_assignment" "role_assignment"{
   scope = azurerm_resource_group.rg.id
-  role_definition_name = "Owner"
+  role_definition_name = "Contributor"
   principal_id = var.owner_object_id
 }
