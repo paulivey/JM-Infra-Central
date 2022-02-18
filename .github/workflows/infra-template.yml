@@ -56,8 +56,6 @@ on:
         required: true
       POLICY_DEFINITION_ID:
         required: true
-      APP_ENVIRONMENT:
-        required: true
       OWNER_OBJECT_ID:
         required: true
       ARM_SUBSCRIPTION_ID:
@@ -114,7 +112,7 @@ jobs:
       with:
         files: '["terraform/base/main.tf", "terraform/base/variables.tfvars"]'
       env:
-        APP_ENVIRONMENT: ${{ secrets.APP_ENVIRONMENT }}
+        APP_ENVIRONMENT: ${{ inputs.GH_ENVIRONMENT }}
         OWNER_OBJECT_ID: ${{ secrets.OWNER_OBJECT_ID }}
         APP_NAME: ${{ inputs.APP_NAME }}
         APP_PROJECT: ${{ inputs.APP_PROJECT }}
@@ -171,8 +169,8 @@ jobs:
             # Get current notScopes list
             $currentNotScopes = (Get-AzPolicyAssignment -Name "${{ secrets.POLICY_ASSIGNMENT_NAME }}").Properties.NotScopes
             # Add new RG to NotScopes of assignment, if not already excluded
-            if(!$currentNotScopes.Contains("/subscriptions/${{ secrets.ARM_SUBSCRIPTION_ID }}/resourceGroups/RG-${{ secrets.APP_ENVIRONMENT }}-${{ inputs.APP_PROJECT }}-${{ inputs.APP_REGION_SHORT }}-${{ inputs.APP_NAME }}-${{ inputs.APP_SUFFIX }}")) {
-              $newNotScopes = $currentNotScopes + "/subscriptions/${{ secrets.ARM_SUBSCRIPTION_ID }}/resourceGroups/RG-${{ secrets.APP_ENVIRONMENT }}-${{ inputs.APP_PROJECT }}-${{ inputs.APP_REGION_SHORT }}-${{ inputs.APP_NAME }}-${{ inputs.APP_SUFFIX }}"
+            if(!$currentNotScopes.Contains("/subscriptions/${{ secrets.ARM_SUBSCRIPTION_ID }}/resourceGroups/RG-${{ inputs.GH_ENVIRONMENT }}-${{ inputs.APP_PROJECT }}-${{ inputs.APP_REGION_SHORT }}-${{ inputs.APP_NAME }}-${{ inputs.APP_SUFFIX }}")) {
+              $newNotScopes = $currentNotScopes + "/subscriptions/${{ secrets.ARM_SUBSCRIPTION_ID }}/resourceGroups/RG-${{ inputs.GH_ENVIRONMENT }}-${{ inputs.APP_PROJECT }}-${{ inputs.APP_REGION_SHORT }}-${{ inputs.APP_NAME }}-${{ inputs.APP_SUFFIX }}"
               # Modify assignment with new NotScopes
               Set-AzPolicyAssignment -Name "${{ secrets.POLICY_ASSIGNMENT_NAME }}" -NotScope $newNotScopes
             }
@@ -224,7 +222,7 @@ jobs:
       with:
         files: '["terraform/policy/main.tf", "terraform/policy/variables.tfvars"]'
       env:
-        APP_ENVIRONMENT: ${{ secrets.APP_ENVIRONMENT }}
+        APP_ENVIRONMENT: ${{ inputs.GH_ENVIRONMENT }}
         APP_NAME: ${{ inputs.APP_NAME }}
         APP_PROJECT: ${{ inputs.APP_PROJECT }}
         APP_LOCATION: ${{ inputs.APP_LOCATION }}
