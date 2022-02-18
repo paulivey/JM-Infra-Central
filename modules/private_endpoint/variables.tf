@@ -1,6 +1,6 @@
 variable "root_sub_id" {
     type    = string
-    default = "219f3968-bba7-4c82-8e7f-4a4defa5d40b"
+    default = "970f1446-9e7a-44d3-8ac1-b35a716185f2"
 }
 
 variable "network_rg_name" {
