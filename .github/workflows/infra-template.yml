@@ -5,7 +5,7 @@ on:
     inputs:
       GH_ENVIRONMENT: # GitHub environment
         type: string
-        default: sandbox
+        default: SBX
         required: true
       TERRAFORM_ACTION: # Terraform apply or destroy
         type: string
