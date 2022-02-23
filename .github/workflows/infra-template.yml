@@ -67,6 +67,8 @@ on:
         required: true
       ARM_CLIENT_SECRET:
         required: true
+      AZURE_CREDS:
+        required: true
       GH_PAT: # GitHub PAT for accessing the modules repo via Terraform
         required: true
 
@@ -92,9 +94,7 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v1.4.3
       with:
-        client-id: ${{ secrets.ARM_CLIENT_ID }}
-        tenant-id: ${{ secrets.ARM_TENANT_ID }}
-        subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        creds: ${{ secrets.AZURE_CREDS }}
         enable-AzPSSession: true
 
     - name: Get user objectId
@@ -176,9 +176,7 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v1.4.3
         with:
-          client-id: ${{ secrets.ARM_CLIENT_ID }}
-          tenant-id: ${{ secrets.ARM_TENANT_ID }}
-          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          creds: ${{ secrets.AZURE_CREDS }}
           enable-AzPSSession: true
 
       - name: Exclude RG from sub tagging policy
