@@ -10,6 +10,9 @@ on:
       TERRAFORM_ACTION: # Terraform apply or destroy
         type: string
         default: apply
+      UPN:
+        type: string
+        required: true
       APP_NAME:
         type: string
         required: true
@@ -65,8 +68,6 @@ on:
       ARM_CLIENT_ID:
         required: true
       ARM_CLIENT_SECRET:
-        required: true
-      AZURE_CREDS:
         required: true
       GH_PAT: # GitHub PAT for accessing the modules repo via Terraform
         required: true
@@ -159,7 +160,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v1.4.3
         with:
-          creds: ${{ secrets.AZURE_CREDS }}
+          client-id: ${{ secrets.ARM_CLIENT_ID }}
+          tenant-id: ${{ secrets.ARM_TENANT_ID }}
+          subscription-id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           enable-AzPSSession: true
 
       - name: Exclude RG from sub tagging policy
