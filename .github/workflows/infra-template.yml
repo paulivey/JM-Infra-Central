@@ -102,7 +102,6 @@ jobs:
       with:
         inlineScript: |
           $objectId = (Get-AzADUser -UserPrincipalName ${{ inputs.UPN }}).Id
-          echo $objectId
           echo "::set-output name=OBJECT_ID::$objectId"
         azPSVersion: latest
       id: get_object_id
