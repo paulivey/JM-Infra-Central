@@ -1,7 +1,7 @@
 Centralised repository for standard Terraform modules
 
 ## Tagging
-Use tags in order to version your released changes.
+Use tags to version your released changes.
 Examples:
 - Create tag for latest commit: `git tag -a 1.4.0 -m "my version 1.4.0"`
 - Create tag for specific commit: `git tag -a 1.2.0 9fceb02 -m "my version 1.2.0"`
