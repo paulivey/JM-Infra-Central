@@ -3,7 +3,7 @@ resource "azurerm_resource_group_policy_assignment" "policy_assignment" {
   name = "${var.tag_app_name} policy assignment"
   policy_definition_id = var.policy_definition_id
   resource_group_id = data.azurerm_resource_group.rg.id
-  description = "Automatically created via Terraform :)"
+  description = "Created using Terraform"
   enforce = true
   parameters = <<PARAMS
     {
