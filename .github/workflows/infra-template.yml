@@ -1,4 +1,4 @@
-name: IaC template
+name: IaC template ${{ inputs.TERRAFORM_ACTION }}
 
 on:
   workflow_call:
