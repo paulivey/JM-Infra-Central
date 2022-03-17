@@ -240,7 +240,7 @@ jobs:
       env:
         APP_ENVIRONMENT: ${{ inputs.GH_ENVIRONMENT }}
         APP_NAME: ${{ inputs.APP_NAME }}
-        RG_POLICY_DEFINITION_ID: ${{ inputs.RG_POLICY_DEFINITION_ID }}
+        RG_POLICY_DEFINITION_ID: ${{ secrets.RG_POLICY_DEFINITION_ID }}
         APP_PROJECT: ${{ inputs.APP_PROJECT }}
         APP_LOCATION: ${{ inputs.APP_LOCATION }}
         APP_REGION_SHORT: ${{ inputs.APP_REGION_SHORT }}
