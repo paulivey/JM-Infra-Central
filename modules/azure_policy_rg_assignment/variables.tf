@@ -4,7 +4,6 @@ variable "resource_group_name" {
 
 variable "policy_definition_id" {
     type    = string
-    default = "#{RG_POLICY_DEFINITION_ID}#"
 }
 
 variable "tag_country" {
