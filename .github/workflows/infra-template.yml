@@ -91,20 +91,20 @@ jobs:
      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
    
    steps:
-    - name: Azure Login
-      uses: Azure/login@v1.4.3
-      with:
-        creds: ${{ secrets.AZURE_CREDS }}
-        enable-AzPSSession: true
+#     - name: Azure Login
+#       uses: Azure/login@v1.4.3
+#       with:
+#         creds: ${{ secrets.AZURE_CREDS }}
+#         enable-AzPSSession: true
 
-    - name: Get user objectId
-      uses: Azure/powershell@v1
-      with:
-        inlineScript: |
-          $objectId = (Get-AzADUser -UserPrincipalName ${{ inputs.UPN }}).Id
-          echo "::set-output name=OBJECT_ID::$objectId"
-        azPSVersion: latest
-      id: get_object_id
+#     - name: Get user objectId
+#       uses: Azure/powershell@v1
+#       with:
+#         inlineScript: |
+#           $objectId = (Get-AzADUser -UserPrincipalName ${{ inputs.UPN }}).Id
+#           echo "::set-output name=OBJECT_ID::$objectId"
+#         azPSVersion: latest
+#       id: get_object_id
    
     - name: Checkout repo
       uses: actions/checkout@v2
@@ -129,7 +129,7 @@ jobs:
         files: '["terraform/base/main.tf", "terraform/base/variables.tfvars"]'
       env:
         APP_ENVIRONMENT: ${{ inputs.GH_ENVIRONMENT }}
-        OWNER_OBJECT_ID: ${{ steps.get_object_id.outputs.OBJECT_ID }}
+        OWNER_OBJECT_ID: '80d52fb0-ac2f-43dd-b478-3856a826b254'
         APP_NAME: ${{ inputs.APP_NAME }}
         APP_PROJECT: ${{ inputs.APP_PROJECT }}
         APP_LOCATION: ${{ inputs.APP_LOCATION }}
