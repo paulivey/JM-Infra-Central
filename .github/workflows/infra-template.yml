@@ -91,20 +91,20 @@ jobs:
      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
    
    steps:
-#     - name: Azure Login
-#       uses: Azure/login@v1.4.3
-#       with:
-#         creds: ${{ secrets.AZURE_CREDS }}
-#         enable-AzPSSession: true
+    - name: Azure Login
+      uses: Azure/login@v1.4.3
+      with:
+        creds: ${{ secrets.AZURE_CREDS }}
+        enable-AzPSSession: true
 
-#     - name: Get user objectId
-#       uses: Azure/powershell@v1
-#       with:
-#         inlineScript: |
-#           $objectId = (Get-AzADUser -UserPrincipalName ${{ inputs.UPN }}).Id
-#           echo "::set-output name=OBJECT_ID::$objectId"
-#         azPSVersion: latest
-#       id: get_object_id
+    - name: Get user objectId
+      uses: Azure/powershell@v1
+      with:
+        inlineScript: |
+          $objectId = (Get-AzADUser -UserPrincipalName ${{ inputs.UPN }}).Id
+          echo "::set-output name=OBJECT_ID::$objectId"
+        azPSVersion: latest
+      id: get_object_id
    
     - name: Checkout repo
       uses: actions/checkout@v2
