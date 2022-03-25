@@ -7,9 +7,8 @@ resource "azurerm_storage_account" "sta" {
     account_kind             = var.sta_kind
     access_tier              = var.sta_access_tier
     account_replication_type = var.sta_replication_type
-    allow_blob_public_access = var.sta_blob_public_access
     tags                     = var.tags
-    
+    allow_blob_public_access = var.sta_blob_public_access    
     share_properties {
       retention_policy {
         days = var.sta_share_retention_period

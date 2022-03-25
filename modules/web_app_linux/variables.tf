@@ -35,11 +35,6 @@ variable "asp_tier" {
     default = "PremiumV2"
 }
 
-variable "asp_reserved" {
-    type    = bool
-    default = true
-}
-
 variable "asp_max_ew_count" {
     type    = number
     default = 1

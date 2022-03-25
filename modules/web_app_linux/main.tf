@@ -4,7 +4,6 @@ resource "azurerm_service_plan" "asp" {
     location                     = var.location
     resource_group_name          = var.app_rg_name
     os_type                      = var.asp_kind
-    reserved                     = var.asp_reserved
     maximum_elastic_worker_count = var.asp_max_ew_count
     tags                         = var.tags
     sku_name                     = var.asp_size
