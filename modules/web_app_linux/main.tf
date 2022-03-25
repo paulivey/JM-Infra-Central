@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "asp" {
     reserved                     = var.asp_reserved
     maximum_elastic_worker_count = var.asp_max_ew_count
     tags                         = var.tags
-    sku_name                     = var.size
+    sku_name                     = var.asp_size
 }
 
 # Create app service web app
