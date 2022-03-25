@@ -39,6 +39,6 @@ resource "azurerm_subnet_network_security_group_association" "nsgassoc" {
 
 # Set up vNet integration with new subnet
 resource "azurerm_app_service_virtual_network_swift_connection" "vi" {
-  app_service_id = data.azurerm_app_service.web_app.id
+  app_service_id = data.azurerm_linux_web_app.web_app.id
   subnet_id = azurerm_subnet.subnet.id
 }
