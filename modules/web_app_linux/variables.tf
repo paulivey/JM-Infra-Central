@@ -35,9 +35,9 @@ variable "asp_tier" {
     default = "PremiumV2"
 }
 
-variable "asp_max_ew_count" {
-    type    = number
-    default = 1
+variable "app_cert_enabled" {
+    type    = string
+    default = true
 }
 
 variable "app_cert_mode" {
@@ -50,9 +50,14 @@ variable "app_site_cfg_num_workers" {
     default = 1
 }
 
-variable "app_linux_fx_version" {
+variable "app_language" {
     type    = string
-    default = "PYTHON|3.9"
+    default = "Python"
+}
+
+variable "app_language_version" {
+    type    = string
+    default = "3.9"
 }
 
 variable "app_dotnet_version" {
