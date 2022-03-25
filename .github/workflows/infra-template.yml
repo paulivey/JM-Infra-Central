@@ -99,6 +99,7 @@ jobs:
 
     - name: Get user objectId
       uses: Azure/powershell@v1
+      if: ${{ inputs.UPN == '' }}
       with:
         inlineScript: |
           $objectId = (Get-AzADUser -UserPrincipalName ${{ inputs.UPN }}).Id
