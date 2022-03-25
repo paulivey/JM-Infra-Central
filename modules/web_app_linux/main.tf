@@ -26,7 +26,6 @@ resource "azurerm_linux_web_app" "web_app" {
     application_stack {
       # Example - Only create this property if the language is Python, and assign a version, otherwise don't create it
       python_version = var.app_language == "Python" ? var.app_language_version : null
-      dotnet_version = var.app_dotnet_version
     }
   }
 }

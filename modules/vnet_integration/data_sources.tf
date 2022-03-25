@@ -16,7 +16,7 @@ data "azurerm_route_table" "routetbl" {
 }
 
 # Web app
-data "azurerm_app_service" "web_app" {
+data "azurerm_linux_web_app" "web_app" {
     name                = var.web_app_name
     resource_group_name = var.web_app_rg_name
 }
