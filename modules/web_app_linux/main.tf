@@ -10,8 +10,6 @@ resource "azurerm_service_plan" "asp" {
 
 # Create app service web app
 resource "azurerm_linux_web_app" "web_app" {
-  # Example - Only deploy this if var.asp_kind = Linux
-  count = var.asp_kind == "Linux" ? 1 : 0
   name = var.app_name
   resource_group_name = var.app_rg_name
   location = var.location

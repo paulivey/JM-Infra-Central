@@ -15,11 +15,6 @@ variable "asp_name" {
     type    = string
 }
 
-variable "asp_kind" {
-    type    = string
-    default = "Linux"
-}
-
 variable "asp_capacity" {
     type    = number
     default = 1
