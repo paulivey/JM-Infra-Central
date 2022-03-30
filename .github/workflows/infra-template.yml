@@ -99,7 +99,7 @@ jobs:
 
     - name: Get user objectId
       uses: Azure/powershell@v1
-      if: ${{ inputs.UPN != '' }}
+      if: ${{ inputs.UPN != '' && inputs.TERRAFORM_ACTION == 'apply' }}
       with:
         inlineScript: |
           $objectId = (Get-AzADUser -UserPrincipalName ${{ inputs.UPN }}).Id
